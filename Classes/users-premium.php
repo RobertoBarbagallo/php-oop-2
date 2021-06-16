@@ -5,25 +5,23 @@ require_once(__DIR__ . "/users.php");
 
 class PremiumUser extends User{
 
-    protected $sconto;
-    protected $puntiMaturati;
-    protected $dataregistrazione;
 
-    public function __construct()
+    private $sconto;
+    private $puntiMaturati;
+    private $dataregistrazione;
+
+    public function __construct($user)
     {
-        $this->Dataregistrazione = $this->data;
+
+        $this->dataregistrazione = $user->data;
         $this->setSconto($this->dataregistrazione);
         $this->status = "premium";
 
     }
 
-    
 
     public function setSconto($value) {
-       
-        //funziona al contrario?
-        
-        if(strtotime($value) < strtotime("2001-03-01")){
+        if(strtotime($value) < strtotime("2019-03-01")){
            $this->sconto = 50;
         }else{
         $this->sconto = 0;}
