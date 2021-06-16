@@ -1,18 +1,19 @@
 <?php 
 
 
-require(__DIR__ . "./user.php");
+require_once(__DIR__ . "/users.php");
 
 class PremiumUser extends User{
 
-    public $sconto;
-    public $puntiMaturati;
-    public $Dataregistrazione;
+    protected $sconto;
+    protected $puntiMaturati;
+    protected $dataregistrazione;
 
     public function __construct()
     {
-        $this->Dataregistrazione = $this->primoaccesso;
-        $this->setSconto($this->Dataregistrazione);
+        $this->Dataregistrazione = $this->data;
+        $this->setSconto($this->dataregistrazione);
+        $this->status = "premium";
 
     }
 
@@ -20,22 +21,18 @@ class PremiumUser extends User{
 
     public function setSconto($value) {
        
-
-        if($value < "10, 3, 2001"){
+        //funziona al contrario?
+        
+        if(strtotime($value) < strtotime("2001-03-01")){
            $this->sconto = 50;
-        }
-    
-      }
+        }else{
+        $this->sconto = 0;}
+
+    }
 
     public function getSconto() {
-        return $this->sconto;
-      }  
+         return $this->sconto;
+    }  
 
 
 }
-
-
-
-
-
-?>

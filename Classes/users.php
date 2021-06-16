@@ -1,34 +1,36 @@
 <?php 
 
 class User{
-    public $id;
-    public $nome;
-    public $cognome;
-    public $email;
-    public $indirizzo;
-    public $telefono;
-    public $carta_di_credito;
-    public $status;
-    public $primoaccesso;
+    protected $id;
+    protected $nome;
+    protected $cognome;
+    protected $email;
+    protected $indirizzo;
+    protected $telefono;
+    protected $carta_di_credito;
+    protected $status;
+    protected $data;
+
 
     public function __construct($name, $lastname, $email, $status = "default", $carta_di_credito = "non inserita" )
     {
-        $this->setID();
+        $this->setUserId();
         $this->setName($name);
         $this->setLastname($lastname);
         $this->setEmail($email);
         $this->setCard($carta_di_credito);
-        $this->primoaccesso = $this->setDate();
+        $this->setDate();
         $this->setStaus("new");
 
     }
 
-    public function setID(){
-      
-      $this->id ="ciao";
-  }
+    public function setUserId() {
+      $this->id = "myId";
+    }
+  
+  
 
-  public function getUserId() {
+    public function getUserId() {
       return $this->id;
     }
 
@@ -96,7 +98,7 @@ class User{
       } 
       
     public function  setDate(){
-        $this->data = date("Y-n-j");  
+        $this->data = date("Y-m-j");  
     }  
 
     public function getDate(){
