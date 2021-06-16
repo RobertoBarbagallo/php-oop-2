@@ -24,6 +24,8 @@ class User{
 
     }
 
+
+    //manca id
     public function setUserId() {
       $this->id = "myId";
     }
