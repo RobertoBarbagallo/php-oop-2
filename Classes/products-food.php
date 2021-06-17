@@ -1,6 +1,6 @@
 <?php
 
-require_once("/Applications/MAMP/htdocs/Boolean/php-oop-2/traits/products.php");
+require_once( __DIR__ . "/../traits/products.php");
 
 class Food{
     use Product;
